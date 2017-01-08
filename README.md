@@ -12,6 +12,10 @@ docker run -d --name logstash logstash
  - > max_lines => 500 ( make it more efficient)
  - > mutate - https://www.elastic.co/guide/en/logstash/current/plugins-filters-mutate.html
  
+## More Log Patterns
+
+--> https://github.com/logstash-plugins/logstash-patterns-core/tree/master/patterns
+
 # Tomcat Log Example
 2017-01-12 02:05:02,003 ERROR [http-nio-8080-exec-349]       c.a.c.c.ExceptionHandlerController - Handling OAuth2Exception: AuthenticationException, {} 
 com.abc.authentication.AuthenticationException: Unable to get response from abc.aol.com for client_Id: ABC_CLIENT
@@ -114,5 +118,4 @@ com.abc.authentication.AuthenticationException: Unable to get response from abc.
     ]
   ]
 }
-
 
