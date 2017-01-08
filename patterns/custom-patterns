@@ -1,0 +1,14 @@
+JAVACLASS (?:[a-zA-Z0-9-]+\.)+[A-Za-z0-9$_]+
+JAVAFILE (?:[A-Za-z0-9_. -]+)
+JAVALOGMESSAGE (.*)
+# MMM dd, yyyy HH:mm:ss eg: Jan 9, 2014 7:13:13 AM
+CATALINA_DATESTAMP %{MONTH} %{MONTHDAY}, 20%{YEAR} %{HOUR}:?%{MINUTE}(?::?%{SECOND}) (?:AM|PM)
+CUSTOM_WARNINGLEVEL (^SEVERE:)|(^INFO:)|(^WARNING:)|(^ERROR:)|(^DEBUG:)|(^Error:)
+CUSTOM_TRACE_ERROR (^.+Error:)
+CUSTOM_TRACE_EXCEPTION (^java.+Exception)|(^.+Exception.+)|(^.+Exception: .+)
+CUSTOM_TRACE_CAUSED_BY (^\s*Caused by:.+)
+CUSTOM_TEXT (?:[A-Za-z_.-]+)
+CUSTOM_TRACE_OTHERS (^\s+at .+)|(^\s+... \d+ more)
+CUSTOM_CATALINALOG %{CATALINA_DATESTAMP:timestamp} %{JAVACLASS:class} %{JAVALOGMESSAGE:messageText}
+JAVASTACKTRACEPART at %{JAVACLASS:class}\.%{WORD:method}\(%{JAVAFILE:file}:%{NUMBER:line}\)
+CUSTOM_MICROSERVICE_EXCEPTION %{JAVACLASS}: Unable to get response from %{JAVACLASS} for client_Id: %{WORD:clientId}
